@@ -132,17 +132,19 @@ class NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      child: Text(
-        text,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(text),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.transparent,
+          onPrimary: Colors.white,
+          shape: StadiumBorder(),
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          side: BorderSide(color: color, width: 2),
+        ),
       ),
-      style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                  side: BorderSide(color: color)))),
-      onPressed: onPressed,
     );
   }
 }
@@ -217,7 +219,7 @@ class ProfileInfo extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 25, horizontal: 50),
               side: BorderSide(color: Colors.red, width: 2),
             ),
-          )
+          ),
         ],
       ),
     ],
